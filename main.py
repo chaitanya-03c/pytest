@@ -10,7 +10,9 @@ def update_state(current_state, event):
     if event == "READY_TO_WAIT" and current_state == "IDLE":
         return "WAIT"
     elif event == "STARTING" and current_state == "IDLE":
-        return "IDLE"
+        return "IN_PROGRESS"
+    elif event == "STARTING" and current_state == "IN_PROGRESS":
+        return "DONE"
     elif event == "COMPLETE" and current_state == "IDLE":
         return "DONE"
     return current_state
