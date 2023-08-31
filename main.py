@@ -11,7 +11,7 @@ def update_state(current_state, event):
         return "WAIT"
     elif event == "STARTING" and current_state == "IDLE":
         return "IDLE"
-    elif event == "COMPLETE" and current_state == "IN_PROGRESS":
+    elif event == "COMPLETE" and current_state == "IDLE":
         return "DONE"
     return current_state
 
@@ -35,6 +35,7 @@ def main():
                         print(f"No state change: {current_state}")
                 else:
                     print(f"Invalid event: {event}")
+                    break
                 
                 time.sleep(1) 
             
